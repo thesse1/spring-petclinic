@@ -37,14 +37,14 @@ stages:
     environment:
       name: MyVMEnv01
       resourceType: VirtualMachine
-      tags: web01
+      # tags: web01
     strategy:
         rolling:
           maxParallel: 2  #for percentages, mention as x%
           preDeploy:
             steps:
-            # - download: current
-            #   artifact: drop
+            - download: current
+              artifact: drop
             - script: echo initialize, cleanup, backup, install certs
           deploy:
             steps:
