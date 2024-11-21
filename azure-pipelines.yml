@@ -56,7 +56,7 @@ stages:
                   echo "Starting deployment script run"
                   ls -l '$(Pipeline.Workspace)/drop/target'
                   touch '$(Pipeline.Workspace)/drop/target/spring-petclinic-3.3.0-SNAPSHOT.jar'
-                  sudo java -jar '$(Pipeline.Workspace)/drop/target/spring-petclinic-3.3.0-SNAPSHOT.jar'
+                  sudo java -jar '$(Pipeline.Workspace)/drop/target/spring-petclinic-3.3.0-SNAPSHOT.jar' &
           routeTraffic:
             steps:
             - script: echo routing traffic
